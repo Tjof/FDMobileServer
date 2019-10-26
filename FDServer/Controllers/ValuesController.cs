@@ -24,6 +24,7 @@ namespace HelloWebApi.Controllers
         }
 
         // POST api/values
+        //ШОооо
         [HttpPost]
         public void Post([FromBody]string value)
         {

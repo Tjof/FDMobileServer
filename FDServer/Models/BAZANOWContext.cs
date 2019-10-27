@@ -72,13 +72,13 @@ namespace FDServer
                     .HasColumnName("Номер дома")
                     .HasMaxLength(20);
 
-                entity.HasOne(d => d.IdОстановкиNavigation)
+                entity.HasOne(d => d.Остановки)
                     .WithMany(p => p.Аптеки)
                     .HasForeignKey(d => d.IdОстановки)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Аптеки_Остановки");
 
-                entity.HasOne(d => d.IdУлицыNavigation)
+                entity.HasOne(d => d.Улицы)
                     .WithMany(p => p.Аптеки)
                     .HasForeignKey(d => d.IdУлицы)
                     .OnDelete(DeleteBehavior.ClientSetNull)

@@ -6,7 +6,8 @@ using FDServer.Models;
  
 namespace FDServer.Models.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
+    
     public class АптекиController : Controller
     {
         BAZANOWContext db;
@@ -15,17 +16,24 @@ namespace FDServer.Models.Controllers
             this.db = context;
         }
 
+        // GET аптеки
         [HttpGet]
-        public IEnumerable<Аптеки> Get()
+        public IActionResult Get()
         {
-            return db.Аптеки.ToList();
+            var drugstores = db.Аптеки.Include("Улицы").Select(s => (new { НазваниеАптеки = s.Название, Улица = s.Улицы.НазваниеУлицы, s.НомерДома, s.ВремяНачалаРаботы, s.ВремяОкончанияРаботы }));
+
+            if (drugstores == null)
+                return NotFound();
+            return new ObjectResult(drugstores);
         }
 
-        // GET api/аптеки
+        // GET аптеки/id
         [HttpGet("{id}")]
-        public IActionResult Get(string na)
+        public IActionResult Get(int? id)
         {
-            Аптеки drugstores = db.Аптеки.FirstOrDefault(x => x.Название == na);
+            //Аптеки drugstores = db.Аптеки.FirstOrDefault(x => x.IdАптеки == id);
+            var drugstores = db.Аптеки.Select(s => (new {Название = s.Название}));
+
             if (drugstores == null)
                 return NotFound();
             return new ObjectResult(drugstores);

@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29411.108
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FDServer", "FDServer\FDServer.csproj", "{705876E3-74AB-4C46-88F3-D44EA54F0985}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FDServer", "FDServer\FDServer.csproj", "{705876E3-74AB-4C46-88F3-D44EA54F0985}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindDrugMobile.Android", "FindDrugMobile\FindDrugMobile.Android\FindDrugMobile.Android.csproj", "{3D25983C-B02C-45C3-A7D0-4AE14D8608C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindDrugMobile", "FindDrugMobile\FindDrugMobile\FindDrugMobile.csproj", "{AA87A11B-126B-47B4-BABB-D0A4CD0F67AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,16 @@ Global
 		{705876E3-74AB-4C46-88F3-D44EA54F0985}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{705876E3-74AB-4C46-88F3-D44EA54F0985}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{705876E3-74AB-4C46-88F3-D44EA54F0985}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D25983C-B02C-45C3-A7D0-4AE14D8608C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D25983C-B02C-45C3-A7D0-4AE14D8608C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D25983C-B02C-45C3-A7D0-4AE14D8608C7}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3D25983C-B02C-45C3-A7D0-4AE14D8608C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D25983C-B02C-45C3-A7D0-4AE14D8608C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D25983C-B02C-45C3-A7D0-4AE14D8608C7}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{AA87A11B-126B-47B4-BABB-D0A4CD0F67AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA87A11B-126B-47B4-BABB-D0A4CD0F67AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA87A11B-126B-47B4-BABB-D0A4CD0F67AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA87A11B-126B-47B4-BABB-D0A4CD0F67AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

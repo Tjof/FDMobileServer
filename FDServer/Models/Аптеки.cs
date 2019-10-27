@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
+
 namespace FDServer
 {
     public partial class Аптеки
@@ -18,8 +19,8 @@ namespace FDServer
         public string ВремяОкончанияРаботы { get; set; }
         public int IdОстановки { get; set; }
 
-        public virtual Остановки IdОстановкиNavigation { get; set; }
-        public virtual Улицы IdУлицыNavigation { get; set; }
+        public virtual Остановки Остановки { get; set; }
+        public virtual Улицы Улицы { get; set; }
         public virtual ICollection<АссортиментТовара> АссортиментТовара { get; set; }
     }
 }

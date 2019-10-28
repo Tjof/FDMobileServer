@@ -6,11 +6,28 @@
              mc:Ignorable="d"
              x:Class="FindDrugMobile.MainPage">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+    <ScrollView>
+        <StackLayout>
 
+            <Button x:Name="Button1" Text="Нажать" Clicked="Button1_Clicked"/>
+            <Label Text="Метка 1" FontSize="23" FontFamily="Roboto" />
+            <Label Text="Метка 2" FontSize="23" FontFamily="Noto Sans"/>
+            <Label Text="Метка 3" FontSize="23" />
+            <Label Text="Метка 4" FontSize="23" />
+            <Label Text="Метка 5" FontSize="23" />
+            <Label Text="Метка 6" FontSize="23" />
+            <Label Text="Метка 7" FontSize="23" />
+            <Label Text="Метка 8" FontSize="23" />
+            <Label Text="Метка 9" FontSize="23" />
+            <Label Text="Метка 10" FontSize="23" />
+            <Label Text="Метка 11" FontSize="23" />
+            <Label Text="Метка 12" FontSize="23" />
+            <Label Text="Метка 13" FontSize="23" />
+            <Label Text="Метка 14" FontSize="23" />
+            <Entry Text="abc" Keyboard="Numeric"/>
+            <Entry Text="abc" Keyboard="Telephone"/>
+            <Entry Text="abc" Keyboard="Email"/>
+
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

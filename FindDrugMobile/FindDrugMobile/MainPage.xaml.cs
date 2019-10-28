@@ -8,14 +8,19 @@ using Xamarin.Forms;
 
 namespace FindDrugMobile
 {
-    // Learn more about making custom code visible in the Xamarin.Forms previewer
-    // by visiting https://aka.ms/xamarinforms-previewer
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
         public MainPage()
         {
             InitializeComponent();
+        }
+
+        private void Button1_Clicked(object sender, EventArgs e)
+        {
+            Button1.Text = "Нажато!!!";
+            Button1.BackgroundColor = Color.Red;
+
         }
     }
 }

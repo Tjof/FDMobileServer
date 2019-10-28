@@ -20,8 +20,8 @@ namespace FDServer.Models.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var drugstores = db.Аптеки.Include("Улицы").Select(s => (new { НазваниеАптеки = s.Название, Улица = s.Улицы.НазваниеУлицы, s.НомерДома, s.ВремяНачалаРаботы, s.ВремяОкончанияРаботы }));
-
+            var drugstores = db.Аптеки.Include("Улицы").Select(s => (new { НазваниеАптеки = s.Название }));
+            //, Улица = s.Улицы.НазваниеУлицы, s.НомерДома, s.ВремяНачалаРаботы, s.ВремяОкончанияРаботы
             if (drugstores == null)
                 return NotFound();
             return new ObjectResult(drugstores);

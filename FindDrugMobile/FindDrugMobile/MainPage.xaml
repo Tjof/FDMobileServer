@@ -1,33 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             mc:Ignorable="d" 
              x:Class="FindDrugMobile.MainPage">
 
-    <ScrollView>
-        <StackLayout>
+    <StackLayout BackgroundColor="White">
+        <Frame BackgroundColor="Blue">
+            <Label 
+                Text="Где искать?" 
+                TextColor="White" 
+                FontSize="38" 
+                HorizontalOptions="Center" 
+                FontAttributes="Bold"/>
+        </Frame>
 
-            <Button x:Name="Button1" Text="Нажать" Clicked="Button1_Clicked"/>
-            <Label Text="Метка 1" FontSize="23" FontFamily="Roboto" />
-            <Label Text="Метка 2" FontSize="23" FontFamily="Noto Sans"/>
-            <Label Text="Метка 3" FontSize="23" />
-            <Label Text="Метка 4" FontSize="23" />
-            <Label Text="Метка 5" FontSize="23" />
-            <Label Text="Метка 6" FontSize="23" />
-            <Label Text="Метка 7" FontSize="23" />
-            <Label Text="Метка 8" FontSize="23" />
-            <Label Text="Метка 9" FontSize="23" />
-            <Label Text="Метка 10" FontSize="23" />
-            <Label Text="Метка 11" FontSize="23" />
-            <Label Text="Метка 12" FontSize="23" />
-            <Label Text="Метка 13" FontSize="23" />
-            <Label Text="Метка 14" FontSize="23" />
-            <Entry Text="abc" Keyboard="Numeric"/>
-            <Entry Text="abc" Keyboard="Telephone"/>
-            <Entry Text="abc" Keyboard="Email"/>
 
-        </StackLayout>
-    </ScrollView>
+        <Button 
+            Text="Найти лекарство" 
+            BackgroundColor="White" 
+            FontSize="48" 
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+            Margin="0,150,0,0"
+            Clicked="Button_Clicked"/>
+    </StackLayout>
 </ContentPage>

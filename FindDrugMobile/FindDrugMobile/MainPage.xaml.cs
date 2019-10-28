@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace FindDrugMobile
@@ -11,16 +12,15 @@ namespace FindDrugMobile
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
+        
         public MainPage()
         {
             InitializeComponent();
         }
 
-        private void Button1_Clicked(object sender, EventArgs e)
+        private void Button_Clicked(object sender, EventArgs e)
         {
-            Button1.Text = "Нажато!!!";
-            Button1.BackgroundColor = Color.Red;
-
+            Navigation.PushAsync(new DrugstorePage());
         }
     }
 }

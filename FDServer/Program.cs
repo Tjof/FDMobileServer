@@ -17,12 +17,11 @@ namespace FDServer
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
-            //Host.CreateDefaultBuilder(args)
-            //    .ConfigureWebHostDefaults(webBuilder =>
-            //    {
-            //        webBuilder.UseStartup<Startup>();
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
 
-            //    });
-            WebHost.CreateDefaultBuilder(args).UseStartup<Startup>().UseUrls("https://*:44379/");
+                });
     }
 }

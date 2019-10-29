@@ -16,11 +16,11 @@
                 FontAttributes="Bold"/>
         </Frame>
 
-
-        <Button 
+        <Image Source="Magnifier_41051.png"/>
+        <Button
             Text="Найти лекарство" 
             BackgroundColor="White" 
-            FontSize="48" 
+            FontSize="48"
             VerticalOptions="Center" 
             HorizontalOptions="Center" 
             Margin="0,150,0,0"

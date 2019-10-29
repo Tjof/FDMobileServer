@@ -22,7 +22,7 @@ namespace FindDrugMobile
 
         protected override async void OnAppearing()
         {
-            await viewModel.GetFriends();
+            await viewModel.GetDrugstores();
             base.OnAppearing();
         }
     }

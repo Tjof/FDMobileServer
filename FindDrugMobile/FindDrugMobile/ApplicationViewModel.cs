@@ -43,14 +43,14 @@ namespace FindDrugMobile
                 PropertyChanged(this, new PropertyChangedEventArgs(propName));
         }
 
-        public async Task GetFriends()
+        public async Task GetDrugstores()
         {
             if (initialized == true) return;
             IsBusy = true;
             IEnumerable<Drugstore> drugstores = await drugstoreService.Get();
 
-            // очищаем список
-            //Friends.Clear();
+            //очищаем список
+            Drugstores.Clear();
             while (Drugstores.Any())
                 Drugstores.RemoveAt(Drugstores.Count - 1);
 

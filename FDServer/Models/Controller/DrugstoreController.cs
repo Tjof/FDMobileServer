@@ -6,12 +6,13 @@ using FDServer.Models;
  
 namespace FDServer.Models.Controllers
 {
+    [ApiController]
     [Route("[controller]")]
     
-    public class АптекиController : Controller
+    public class DrugstoreController : Controller
     {
         BAZANOWContext db;
-        public АптекиController(BAZANOWContext context)
+        public DrugstoreController(BAZANOWContext context)
         {
             this.db = context;
         }

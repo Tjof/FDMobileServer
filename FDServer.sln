@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FDServer", "FDServer\FDServ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindDrugMobile.Android", "FindDrugMobile\FindDrugMobile.Android\FindDrugMobile.Android.csproj", "{3D25983C-B02C-45C3-A7D0-4AE14D8608C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindDrugMobile", "FindDrugMobile\FindDrugMobile\FindDrugMobile.csproj", "{AA87A11B-126B-47B4-BABB-D0A4CD0F67AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FindDrugMobile", "FindDrugMobile\FindDrugMobile\FindDrugMobile.csproj", "{AA87A11B-126B-47B4-BABB-D0A4CD0F67AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -13,7 +13,9 @@ namespace FindDrugMobile
         bool initialized = false;   // была ли начальная инициализация
         private bool isBusy;    // идет ли загрузка с сервера
 
-        public ObservableCollection<Drugstore> Drugstores { get; set; }
+        public ObservableCollection<Drugstore> Drugstores
+        { get; 
+            set; }
         DrugstoreService drugstoreService = new DrugstoreService();
         public event PropertyChangedEventHandler PropertyChanged;
 

@@ -12,7 +12,7 @@
                     <ViewCell>
                         <ViewCell.View>
                             <StackLayout>
-                                <Label Text="{Binding Name}" FontSize="Medium" />
+                                <Label Text="{Binding названиеАптеки}" FontSize="Medium" />
                             </StackLayout>
                         </ViewCell.View>
                     </ViewCell>

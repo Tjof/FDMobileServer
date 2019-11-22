@@ -9,7 +9,7 @@ namespace FindDrugMobile
 {
     class DrugstoreService
     {
-        const string Url = "http://localhost:51941/аптеки";
+        const string Url = "http://20.188.34.167:5000/drugstore";
         // настройка клиента
         private HttpClient GetClient()
         {

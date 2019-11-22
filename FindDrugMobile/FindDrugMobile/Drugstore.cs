@@ -6,6 +6,6 @@ namespace FindDrugMobile
 {
     public class Drugstore
     {
-        public string Name { get; set; }
+        public string названиеАптеки { get; set; }
     }
 }

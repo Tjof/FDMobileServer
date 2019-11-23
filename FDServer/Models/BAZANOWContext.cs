@@ -28,6 +28,8 @@ namespace FDServer
         public virtual DbSet<ТранспортныеМаршруты> ТранспортныеМаршруты { get; set; }
         public virtual DbSet<Улицы> Улицы { get; set; }
         public virtual DbSet<ФормыУпаковки> ФормыУпаковки { get; set; }
+        public virtual DbSet<GetRoutes_Result> GetRoutes_Result { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -341,6 +343,20 @@ namespace FDServer
                     .IsRequired()
                     .HasColumnName("Название формы")
                     .HasMaxLength(25);
+            });
+
+            modelBuilder.Entity<GetRoutes_Result>(entity =>
+            {
+                entity.HasNoKey();
+                entity.Property(e => e.Вид_транспорта).HasColumnName("Вид транспорта");
+                entity.Property(e => e.Название_лекарства).HasColumnName("Название лекарства");
+                entity.Property(e => e.Номер_дома).HasColumnName("Номер дома");
+                entity.Property(e => e.Время_начала_работы).HasColumnName("Время начала работы");
+                entity.Property(e => e.Время_окончания_работы).HasColumnName("Время окончания работы");
+                entity.Property(e => e.Название_остановки).HasColumnName("Название остановки");
+                entity.Property(e => e.Название_улицы).HasColumnName("Название улицы");
+                entity.Property(e => e.Номер_маршрута).HasColumnName("Номер маршрута");
+                entity.Property(e => e.Название_формы).HasColumnName("Название формы");
             });
 
             OnModelCreatingPartial(modelBuilder);

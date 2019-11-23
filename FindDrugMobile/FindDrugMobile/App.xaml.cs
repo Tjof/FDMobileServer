@@ -10,7 +10,7 @@ namespace FindDrugMobile
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new DrugstorePage());
+            MainPage = new NavigationPage(new SelectDrugStop());
         }
         protected override void OnStart()
         {

@@ -13,10 +13,10 @@ namespace FindDrugMobile
     public partial class DrugstorePage : ContentPage
     {
         ApplicationViewModel viewModel;
-        public DrugstorePage()
+        public DrugstorePage(int id_drug, int id_ost)
         {
             InitializeComponent();
-            viewModel = new ApplicationViewModel();
+            viewModel = new ApplicationViewModel(id_drug, id_ost);
             BindingContext = viewModel;
         }
 

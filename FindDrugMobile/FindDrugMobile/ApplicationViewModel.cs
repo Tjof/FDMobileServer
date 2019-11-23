@@ -12,10 +12,10 @@ namespace FindDrugMobile
     {
         bool initialized = false;   // была ли начальная инициализация
         private bool isBusy;    // идет ли загрузка с сервера
+        private int _id_drug;
+        private int _id_stop;
 
-        public ObservableCollection<Drugstore> Drugstores
-        { get; 
-            set; }
+        public ObservableCollection<Drugstore> Drugstores { get; set; }
         DrugstoreService drugstoreService = new DrugstoreService();
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -34,10 +34,12 @@ namespace FindDrugMobile
             get { return !isBusy; }
         }
 
-        public ApplicationViewModel()
+        public ApplicationViewModel(int id_drug, int id_ost)
         {
             Drugstores = new ObservableCollection<Drugstore>();
             IsBusy = false;
+            _id_drug = id_drug;
+            _id_stop = id_ost;
         }
         protected void OnPropertyChanged(string propName)
         {
@@ -49,18 +51,19 @@ namespace FindDrugMobile
         {
             if (initialized == true) return;
             IsBusy = true;
-            IEnumerable<Drugstore> drugstores = await drugstoreService.Get();
+            IEnumerable<Drugstore> drugstores = await drugstoreService.Get(_id_drug, _id_stop);
 
             //очищаем список
             Drugstores.Clear();
             while (Drugstores.Any())
                 Drugstores.RemoveAt(Drugstores.Count - 1);
-
             // добавляем загруженные данные
             foreach (Drugstore d in drugstores)
                 Drugstores.Add(d);
             IsBusy = false;
             initialized = true;
         }
+
+
     }
 }

@@ -20,7 +20,7 @@ namespace FindDrugMobile
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new DrugstorePage());
+            Navigation.PushAsync(new SelectDrugStop());
         }
     }
 }

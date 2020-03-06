@@ -5,6 +5,8 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using System.Linq;
 using System.Threading.Tasks;
+using System;
+using System.Runtime.CompilerServices;
 
 namespace FindDrugMobile
 {
@@ -12,11 +14,11 @@ namespace FindDrugMobile
     {
         bool initialized = false;   // была ли начальная инициализация
         private bool isBusy;    // идет ли загрузка с сервера
-        private int _id_drug;
-        private int _id_stop;
+        private int id_drug;
+        private int id_stop;
 
-        public ObservableCollection<Drugstore> Drugstores { get; set; }
-        DrugstoreService drugstoreService = new DrugstoreService();
+        //public IEnumerable<Drugstore> Drugstores { get; set; }
+        FindRoutesService drugstoreService = new FindRoutesService();
         public event PropertyChangedEventHandler PropertyChanged;
 
         public bool IsBusy
@@ -34,36 +36,48 @@ namespace FindDrugMobile
             get { return !isBusy; }
         }
 
-        public ApplicationViewModel(int id_drug, int id_ost)
+        public ApplicationViewModel(Drug drug, Stop ost)
         {
-            Drugstores = new ObservableCollection<Drugstore>();
+            //Drugstores = new ObservableCollection<Drugstore>();
             IsBusy = false;
-            _id_drug = id_drug;
-            _id_stop = id_ost;
+            id_drug = drug.id;
+            id_stop = ost.id;
         }
-        protected void OnPropertyChanged(string propName)
+        protected void OnPropertyChanged([CallerMemberName]string propName="")
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(propName));
         }
-
+        public object[] OrderedDrugs { get => orderedDrugs; set { orderedDrugs = value; OnPropertyChanged(); } }
+        private object[] orderedDrugs;
         public async Task GetDrugstores()
         {
             if (initialized == true) return;
             IsBusy = true;
-            IEnumerable<Drugstore> drugstores = await drugstoreService.Get(_id_drug, _id_stop);
+            IEnumerable<Drugstore> drugstores = await drugstoreService.Get(id_drug, id_stop);
 
             //очищаем список
-            Drugstores.Clear();
-            while (Drugstores.Any())
-                Drugstores.RemoveAt(Drugstores.Count - 1);
-            // добавляем загруженные данные
-            foreach (Drugstore d in drugstores)
-                Drugstores.Add(d);
+            //Drugstores = drugstores;
+            var result = drugstores
+                .GroupBy(r => new 
+                { 
+                    r.название, 
+                    r.Адрес,
+                    r.время_работы, 
+                    r.название_остановки }
+                ).Select(a =>
+                   new {
+                       a.Key.название,
+                       a.Key.Адрес,
+                       a.Key.время_работы,
+                       a.Key.название_остановки,
+                       Маршруты = a.Select(mo => new { mo.маршрут, mo.разница }).Distinct().ToArray(),
+                       Лекарства = a.Select(lek => new { lek.название_формы, lek.цена }).Distinct().ToArray()
+                   })
+                .ToArray();
+            OrderedDrugs = result;
             IsBusy = false;
             initialized = true;
         }
-
-
     }
 }

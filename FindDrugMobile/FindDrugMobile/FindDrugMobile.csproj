@@ -17,13 +17,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="DrugstorePage.xaml.cs">
-      <DependentUpon>DrugstorePage.xaml</DependentUpon>
+    <Compile Update="FindRoutesPage.xaml.cs">
+      <DependentUpon>FindRoutesPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="DrugstorePage.xaml">
+    <EmbeddedResource Update="FindRoutesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="SelectDrugStop.xaml">

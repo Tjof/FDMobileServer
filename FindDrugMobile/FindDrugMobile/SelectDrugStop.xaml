@@ -4,15 +4,58 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="FindDrugMobile.SelectDrugStop">
-    <StackLayout>
-        <Picker x:Name="PickerDrug" ItemsSource="{Binding Drugss}"
-                ItemDisplayBinding="{Binding название}"
-                Margin="25"/>
-        <Picker x:Name="PickerStop" ItemsSource="{Binding Stopss}"
-                ItemDisplayBinding="{Binding название}"
-                Margin="25"/>
-        <Button Text="Найти лекарство" Margin="25" Clicked="FindRoutesClicked"/>
+             x:Class="FindDrugMobile.SelectDrugStop"
+             Title="Поиск лекарства" BackgroundColor="#4279ff">
+
+    <StackLayout BackgroundColor="#FFF8C9">
+
+        <Frame BorderColor="Black"
+               Margin="25,25,25,0"
+               Padding="5"
+               CornerRadius="5">
+            <Entry x:Name="searchDrug"
+                   Placeholder="Введите лекарство"
+                   FontSize="20" TextColor="Black"/>
+        </Frame>
+        <ListView x:Name="searchResultsDrug"
+                  IsVisible="False"
+                  SelectionMode="Single"
+                  Margin="25,0,25,0"
+                  BackgroundColor="White"
+                  SeparatorColor="Black">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Label Text="{Binding название}" FontSize="20"/>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Frame BorderColor="Black"
+               Margin="25,25,25,0"
+               Padding="5"
+               CornerRadius="5">
+            <Entry x:Name="searchStop"
+                   Placeholder="Введите ближайшую остановку"
+                   FontSize="20" TextColor="Black"/>
+        </Frame>
+        <ListView x:Name="searchResultsStop"
+                  IsVisible="False"
+                  SelectionMode="Single"
+                  Margin="25,0,25,0"
+                  BackgroundColor="White"
+                  SeparatorColor="Black">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Label Text="{Binding название}" FontSize="20"/>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Text="Найти лекарство" Margin="25" Clicked="FindRoutesClicked"
+                BorderColor="Black" TextColor="White" BackgroundColor="#4279ff"
+                FontSize="26" CornerRadius="15"/>
     </StackLayout>
 </ContentPage>
         

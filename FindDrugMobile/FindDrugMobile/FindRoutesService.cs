@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
@@ -7,9 +8,8 @@ using System.Threading.Tasks;
 
 namespace FindDrugMobile
 {
-    class StopsService
+    class FindRoutesService
     {
-        const string Url = "http://192.168.43.221:5000/Stops";
         // настройка клиента
         private HttpClient GetClient()
         {
@@ -18,11 +18,12 @@ namespace FindDrugMobile
             return client;
         }
 
-        public async Task<Stops[]> Get()
+        public async Task<IEnumerable<Drugstore>> Get(int id_drug, int id_ost)
         {
             HttpClient client = GetClient();
-            string result = await client.GetStringAsync(Url);
-            return JsonConvert.DeserializeObject<Stops[]>(result);
+            string route = "http://20.188.34.167:5000/FindRoutes?id_grud=" + id_drug + "&id_ost=" + id_ost;
+            string result = await client.GetStringAsync(route);
+            return JsonConvert.DeserializeObject<IEnumerable<Drugstore>>(result);
         }
     }
 }

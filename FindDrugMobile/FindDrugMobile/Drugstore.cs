@@ -19,5 +19,8 @@ namespace FindDrugMobile
         public string вид_транспорта { get; set; }
         public string название_формы { get; set; }
         public int порядок { get; set; }
+        public string Адрес { get => "Адрес: " + название_улицы + " " + номер_дома; }
+        public string время_работы { get => время_начала_работы + " - " + время_окончания_работы; }
+        public string маршрут { get => "Маршрут: " + номер_маршрута + " " + вид_транспорта; }
     }
 }

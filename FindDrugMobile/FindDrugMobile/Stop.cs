@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FindDrugMobile
 {
-    class Drugs
+    public class Stop
     {
         public string название { get; set; }
         public int id { get; set; }

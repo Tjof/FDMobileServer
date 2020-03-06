@@ -10,14 +10,16 @@ using Xamarin.Forms.Xaml;
 namespace FindDrugMobile
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class DrugstorePage : ContentPage
+    public partial class FindRoutesPage : ContentPage
     {
         ApplicationViewModel viewModel;
-        public DrugstorePage(int id_drug, int id_ost)
+        public FindRoutesPage(Drug drug, Stop ost)
         {
             InitializeComponent();
-            viewModel = new ApplicationViewModel(id_drug, id_ost);
+            viewModel = new ApplicationViewModel(drug, ost);
             BindingContext = viewModel;
+            DrugName.Text = drug.название;
+            StopName.Text = "Ваша остановка: " + ost.название;
         }
 
         protected override async void OnAppearing()

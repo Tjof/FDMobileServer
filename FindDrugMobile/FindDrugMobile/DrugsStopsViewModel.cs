@@ -11,17 +11,17 @@ using System.Threading;
 
 namespace FindDrugMobile
 {
-    class DrugsViewModel : INotifyPropertyChanged
+    class DrugsStopsViewModel : INotifyPropertyChanged
     {
         //bool initialized = false;   // была ли начальная инициализация
         //private bool isBusy;    // идет ли загрузка с сервера
 
-        public Drugs[] Drugss { get => drugss; set { drugss = value; OnPropertyChanged(); } }
-        public Stops[] Stopss { get => stopss; set { stopss = value; OnPropertyChanged(); } }
-        DrugsService drugsService = new DrugsService();
-        StopsService stopsService = new StopsService();
-        private Drugs[] drugss;
-        private Stops[] stopss;
+        public Drug[] Drugss { get => drugss; set { drugss = value; OnPropertyChanged(); } }
+        public Stop[] Stopss { get => stopss; set { stopss = value; OnPropertyChanged(); } }
+        DrugService drugsService = new DrugService();
+        StopService stopsService = new StopService();
+        private Drug[] drugss;
+        private Stop[] stopss;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -40,7 +40,7 @@ namespace FindDrugMobile
         //    get { return !isBusy; }
         //}
 
-        public DrugsViewModel()
+        public DrugsStopsViewModel()
         {
             //IsBusy = true;
             //Task.Run(async () => {
@@ -81,7 +81,7 @@ namespace FindDrugMobile
         //Random r = new Random();
         //Object syncObject = new object();
 
-        public async Task<Drugs[]> GetDrugs()
+        public async Task<Drug[]> GetDrugs()
         {
             var drugs = await drugsService.Get();
             
@@ -89,7 +89,7 @@ namespace FindDrugMobile
 
         }
 
-        public async Task<Stops[]> GetStops()
+        public async Task<Stop[]> GetStops()
         {
             var stops = await stopsService.Get();
 

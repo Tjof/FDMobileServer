@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace FindDrugMobile
 {
-    class DrugsService
+    class StopService
     {
-        const string Url = "http://192.168.43.221:5000/Drugs";
+        const string Url = "http://20.188.34.167:5000/Stop";
         // настройка клиента
         private HttpClient GetClient()
         {
@@ -18,11 +18,11 @@ namespace FindDrugMobile
             return client;
         }
 
-        public async Task<Drugs[]> Get()
+        public async Task<Stop[]> Get()
         {
             HttpClient client = GetClient();
             string result = await client.GetStringAsync(Url);
-            return JsonConvert.DeserializeObject<Drugs[]>(result);
+            return JsonConvert.DeserializeObject<Stop[]>(result);
         }
     }
 }

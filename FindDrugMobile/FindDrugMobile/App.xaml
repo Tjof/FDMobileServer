@@ -6,6 +6,12 @@
              mc:Ignorable="d"
              x:Class="FindDrugMobile.App">
     <Application.Resources>
-
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="Small"/>
+            <Setter Property="TextColor" Value="Black"/>
+        </Style>
+        <Style TargetType="ListView">
+            <Setter Property="SelectionMode" Value="None"/>
+        </Style>
     </Application.Resources>
 </Application>

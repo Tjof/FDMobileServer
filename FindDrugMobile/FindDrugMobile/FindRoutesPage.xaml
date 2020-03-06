@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="FindDrugMobile.FindRoutesPage">
+
+
+    <StackLayout>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="DrugName" FontSize="Title"/>
+            <Label x:Name="StopName" Grid.Column="1"/>
+        </Grid>
+        <ListView  x:Name="outerListview" HasUnevenRows="True" ItemsSource="{Binding OrderedDrugs}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell x:Name="outerListviewCell">
+                        <ViewCell.View>
+                            <ContentView>
+                                <StackLayout>
+
+                                    <StackLayout BackgroundColor="#11B856" >
+                                        <Label Text="{Binding название, StringFormat='Аптека: {0}'}" TextColor="White" FontSize="Medium" Margin="5,0,0,0"/>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label TextColor="White" Margin="5,0,0,0" Text="{Binding Адрес}"/>
+                                            <Label TextColor="White" Margin="0,0,15,0" Text="{Binding время_работы}" Grid.Column="1"/>
+                                        </Grid>
+                                    </StackLayout>
+
+                                    <Label Text="Данные по лекарству:" Margin="5,0,0,0" FontSize="Medium"/>
+                                    <ListView ItemsSource="{Binding Лекарства}" RowHeight="25">
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <ViewCell>
+                                                    <StackLayout Orientation="Horizontal" Margin="20,0,0,0">
+                                                        <Label Text="{Binding название_формы, StringFormat='Форма упаковки: {0}'}"/>
+                                                        <Label Text="{Binding цена, StringFormat='Цена: {0} руб.'}"/>
+                                                    </StackLayout>
+                                                </ViewCell>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
+
+                                    <StackLayout BackgroundColor="#FFF8E9">
+                                        <Label Text="{Binding название_остановки, StringFormat='Выйти на остановке: {0}'}" FontSize="Medium" Margin="5,0,0,0"/>
+                                        <ListView ItemsSource="{Binding Маршруты}" RowHeight="40">
+                                            <ListView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <ViewCell>
+                                                        <Grid Margin="20,0,0,0">
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition/>
+                                                                <ColumnDefinition/>
+                                                            </Grid.ColumnDefinitions>
+                                                            <Label TextColor="Black" Margin="5,0,0,0" Text="{Binding маршрут}"/>
+                                                            <Label TextColor="Black" Text="{Binding разница, StringFormat='Остановок до аптеки: {0}'}" Grid.Column="1"/>
+                                                        </Grid>
+                                                    </ViewCell>
+                                                </DataTemplate>
+                                            </ListView.ItemTemplate>
+                                        </ListView>
+                                    </StackLayout>
+
+                                </StackLayout>
+                            </ContentView>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackLayout IsVisible="{Binding IsBusy}"
+                    HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Padding="20">
+            <Label Text="Загрузка данных..." TextColor="Gray" HorizontalOptions="Center" />
+            <ActivityIndicator IsRunning="{Binding IsBusy}" Color="Accent" >
+            </ActivityIndicator>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
